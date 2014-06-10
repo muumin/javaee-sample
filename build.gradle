@@ -1,0 +1,47 @@
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "groovy"
+apply plugin: "war"
+
+defaultTasks "clean", "build", "war"
+
+project.ext {
+    artifactId = 'javaee-example'
+}
+
+def defaultEncoding = 'UTF-8'
+tasks.withType(AbstractCompile) each { it.options.encoding = defaultEncoding }
+tasks.withType(GroovyCompile) each { it.groovyOptions.encoding = defaultEncoding }
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'javax:javaee-api:7.0'
+    compile 'javax.ejb:javax.ejb-api:3.2'
+    compile 'javax.websocket:javax.websocket-api:1.0'
+    compile 'com.sun.faces:jsf-api:2.0.11-01'
+
+    compile 'org.primefaces:primefaces:5.0'
+
+    compile 'org.eclipse.persistence:org.eclipse.persistence.jpa:2.5.1'
+
+    compile "com.google.guava:guava:16.0.1"
+    compile "org.slf4j:slf4j-log4j12:1.6.1"
+
+    testCompile 'org.codehaus.groovy:groovy-all:2.2.2'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+    testCompile 'cglib:cglib-nodep:3.1'
+    testCompile 'org.objenesis:objenesis:2.1'
+    testCompile 'org.apache.derby:derby:10.10.2.0'
+}
+
+task wrapper(type: Wrapper) { gradleVersion = '1.12' }
+
+eclipse {
+    pathVariables GRADLE_REPO: file(System.properties['user.home'] + '/.gradle/cache')
+}

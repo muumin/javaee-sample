@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaEE7 WebSocket Test</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        var socket;
+        $(document).ready(function () {
+            socket = new WebSocket("ws://localhost:8080/javaee_example/wsexample");
+
+            socket.onmessage = function (message) {
+                $('#messages').append(message.data + "<br/>");
+            }
+
+            $('#send').click(function () {
+                socket.send($('#message').val());
+                $('#message').val('');
+            })
+        });
+    </script>
+</head>
+<body>
+<input id="message" type="text">
+<button id="send">Send</button>
+<div id="messages"></div>
+</body>
+</html>

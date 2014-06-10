@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <h1><h:outputLabel value="ユーザー登録"/></h1>
+</f:view>
+
+<h:form id="user-form">
+    <h:panelGrid columns="3">
+        <h:outputText value="名前"/>
+        <h:inputText id="name" value="#{userController.user.name}"/>
+        <h:message for="name"/>
+        <h:outputText value="メール"/>
+        <h:inputText id="email" value="#{userController.user.email}" binding="#{userController.emailComponent}"/>
+        <h:message for="email"/>
+        <h:outputText value="パスワード"/>
+        <h:inputText id="passwd" value="#{userController.user.passwd}"/>
+        <h:message for="passwd"/>
+    </h:panelGrid>
+    <h:commandButton value="作成" action="#{userController.create}"/>
+</h:form>
+<h:dataTable value="#{userController.userList}" var="user">
+    <h:column>
+        <f:facet name="header"><h:outputText value="名前"/></f:facet>
+        <h:outputText value="#{user.name}"/>
+    </h:column>
+    <h:column>
+        <f:facet name="header"><h:outputText value="メール"/></f:facet>
+        <h:outputText value="#{user.email}"/>
+    </h:column>
+</h:dataTable>
+<f:view>
+    <h:panelGrid columns="1">
+        <h:outputLink value="wsexample.html"><f:verbatim>WebSocket Sample</f:verbatim></h:outputLink>
+        <h:outputLink value="userlist"><f:verbatim>UserList(Servlet) Sample</f:verbatim></h:outputLink>
+    </h:panelGrid>
+</f:view>
+<!-- debug window ctl + shift + x -->
+<!--<ui:debug hotkey="x"/>-->
+</html>
