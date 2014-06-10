@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="javaee_example">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>sample.domain.user.User</class>
+        <!--ユニットテストの場合クラス名の記述が必要-->
+        <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.AutoloadedDriver"/>
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/javaee-sample-test;create=true"/>-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:./db/javaee-sample-test;create=true"/>
+            <property name="javax.persistence.jdbc.user" value=""/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.logging.level" value="INFO"/>
+            <!-- output SQL Log -->
+            <!--<property name="eclipselink.logging.level.sql" value="FINE"/>-->
+            <!--<property name="eclipselink.logging.parameters" value="true"/>-->
+        </properties>
+    </persistence-unit>
+</persistence>

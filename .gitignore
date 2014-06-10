@@ -1,0 +1,10 @@
+*~
+\#*
+*.iml
+*.ipr
+/.gradle
+/.idea
+/build
+/classes
+/db
+/derby.log
