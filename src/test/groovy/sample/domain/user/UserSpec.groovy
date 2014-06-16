@@ -4,6 +4,7 @@ import spock.lang.Specification
 
 class UserSpec extends Specification {
     User user
+
     void setup() {
         user = new User();
     }
