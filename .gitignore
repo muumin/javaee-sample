@@ -7,4 +7,5 @@
 /build
 /classes
 /db
+/target
 /derby.log
