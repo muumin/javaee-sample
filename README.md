@@ -23,15 +23,22 @@ src/test/resources/arquillian.xml
 以下を使ってみたが数回に1回しかCDIが成功しない。
 原因不明。後回し。
 
-arquillian-testrunner-spock https://github.com/arquillian/arquillian-testrunner-spock
+arquillian-testrunner-spock
+https://github.com/arquillian/arquillian-testrunner-spock
 
 
 参考サイト
 =============================================
 
-wildfly http://www.wildfly.org/
-spock http://spockframework.org/
+wildfly
+http://www.wildfly.org/
 
-グロブ http://typea.info/blg/glob/2014/04/java-ee-7-1-wildfly-jboss-tools-ear-arquillian.html
-きしだのはてな http://d.hatena.ne.jp/nowokay/20131213
+spock
+http://spockframework.org/
+
+グロブ
+http://typea.info/blg/glob/2014/04/java-ee-7-1-wildfly-jboss-tools-ear-arquillian.html
+
+きしだのはてな
+http://d.hatena.ne.jp/nowokay/20131213
 
